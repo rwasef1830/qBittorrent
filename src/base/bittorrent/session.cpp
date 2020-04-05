@@ -1578,6 +1578,7 @@ void Session::configureNetworkInterfaces(lt::settings_pack &settingsPack)
     LogMsg(tr("Trying to listen on: %1", "e.g: Trying to listen on: 192.168.0.1:6881")
            .arg(finalEndpoints), Log::INFO);
 
+	LogMsg(tr("outgoing_interfaces: %1", "").arg(outgoingInterfaces.join(',')), Log::INFO);
     settingsPack.set_str(lt::settings_pack::outgoing_interfaces, outgoingInterfaces.join(',').toStdString());
     m_listenInterfaceConfigured = true;
 }
