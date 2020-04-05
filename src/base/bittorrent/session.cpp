@@ -1048,12 +1048,16 @@ Session::~Session()
 
     qDebug("Deleting the session");
     delete m_nativeSession;
-
+	qDebug("Deleted the session");
+	qDebug("Asking m_ioThread to quit");
     m_ioThread->quit();
+	qDebug("Waiting for m_ioThread");
     m_ioThread->wait();
-
+	qDebug("m_resumeFolderLock close");
     m_resumeFolderLock->close();
+	qDebug("m_resumeFolderLock remove");
     m_resumeFolderLock->remove();
+	qDebug("End of session delete");
 }
 
 void Session::initInstance()
